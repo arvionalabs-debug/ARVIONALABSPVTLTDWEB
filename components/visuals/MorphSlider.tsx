@@ -35,19 +35,23 @@ export type MorphSliderProps = {
 
 const DEFAULT_ITEMS: MorphItem[] = [
   {
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop",
-    caption: "Interactive AI Discovery · Classroom Session",
+    image: "/edu-tour/session-1.jpg",
+    caption: "Interactive AI Classroom Session · Arviona Edu Tour 2026",
   },
   {
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop",
-    caption: "Live Concept Exploration · Higher Secondary Students",
+    image: "/edu-tour/session-2.jpg",
+    caption: "Live Concept Exploration & Student Engagement",
   },
   {
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1600&auto=format&fit=crop",
-    caption: "Adaptive Learning Feedback & Problem Solving",
+    image: "/edu-tour/session-3.jpg",
+    caption: "Hands-on Technology Demonstration in the Classroom",
   },
   {
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1600&auto=format&fit=crop",
+    image: "/edu-tour/session-4.jpg",
+    caption: "Future Skills, AI Awareness & Student Q&A",
+  },
+  {
+    image: "/edu-tour/session-5.jpg",
     caption: "The Founding Twenty Cohort · Classroom Moments",
   },
 ];
