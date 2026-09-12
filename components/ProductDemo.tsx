@@ -183,7 +183,7 @@ export function ProductDemo() {
             </button>
           ) : null}
           <span className="text-[0.74rem] font-semibold tracking-[0.24em] text-white/60">
-            ARVIONA
+            ARVIONA LABS
           </span>
         </div>
         <p className="font-mono text-[0.7rem] text-white/50">

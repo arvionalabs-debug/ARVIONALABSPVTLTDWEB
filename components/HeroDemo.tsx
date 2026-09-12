@@ -53,7 +53,7 @@ export function HeroDemo() {
         {/* Interface bar */}
         <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-3.5">
           <span className="text-[0.7rem] font-semibold tracking-[0.24em] text-white/55">
-            ARVIONA
+            ARVIONA LABS
           </span>
           <AnimatePresence mode="wait">
             {turn ? (
