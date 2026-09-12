@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { EduTourTimeline } from "@/components/sections/EduTourTimeline";
+import { EduTourShowcase } from "@/components/sections/EduTourShowcase";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTASection } from "@/components/sections/CTASection";
@@ -57,6 +58,9 @@ export default function EduTourPage() {
           </div>
         </div>
       </section>
+
+      {/* Dedicated Classroom Moments Photo Morph Showcase */}
+      <EduTourShowcase />
 
       <section className="dark-band relative overflow-hidden bg-ink">
         <div className="grid-field pointer-events-none absolute inset-0 opacity-60" />
