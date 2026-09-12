@@ -55,12 +55,12 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className={`text-[0.95rem] font-semibold tracking-[0.26em] transition-colors duration-500 ${
+            className={`text-[0.95rem] font-semibold tracking-[0.24em] transition-colors duration-500 ${
               solid ? "text-ink" : "text-white"
             }`}
             aria-label="Arviona Labs — home"
           >
-            ARVIONA
+            ARVIONA LABS
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
