@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { COMPANY } from "@/lib/site";
-import { EASE } from "@/lib/motion";
 
 const FOCUS = ["AI", "Cognitive learning", "Educational innovation", "Personalized learning"];
 
@@ -15,7 +13,7 @@ const SOCIAL_LINKS = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/andrew-surjit-ronald-5aa1382b5/",
-    label: "Connect on LinkedIn",
+    label: "Andrew Surjit Ronald",
     icon: (
       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2m1.4 9.74V9.92H5.06v8.58h2.8Z" />
@@ -37,7 +35,7 @@ const SOCIAL_LINKS = [
 export function About() {
   return (
     <Section tone="light" size="lg" id="about">
-      <div className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:items-center">
+      <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20 lg:items-center">
         {/* Left Column: Company Story & Focus */}
         <div>
           <ScrollReveal>
@@ -69,49 +67,49 @@ export function About() {
           </ScrollReveal>
         </div>
 
-        {/* Right Column: Full Portrait Founder Showcase Card */}
+        {/* Right Column: Large Clear Executive Portrait Card */}
         <ScrollReveal delay={0.15}>
-          <div className="group relative overflow-hidden rounded-3xl border border-ink/[0.1] bg-white p-7 sm:p-9 shadow-lg shadow-ink/[0.03] transition-all duration-500 hover:border-ink/25 hover:shadow-xl">
-            {/* Full-width Portrait Image Container */}
-            <div className="relative h-[340px] w-full overflow-hidden rounded-2xl bg-ink/5 sm:h-[380px]">
+          <div className="group relative overflow-hidden rounded-3xl border border-ink/[0.1] bg-white p-6 sm:p-8 shadow-xl shadow-ink/[0.04] transition-all duration-500 hover:border-ink/25">
+            {/* Large Full-Height Crisp Portrait */}
+            <div className="relative h-[440px] w-full overflow-hidden rounded-2xl bg-paper-soft sm:h-[500px]">
               <Image
                 src="/founder.png"
                 alt={COMPANY.founder}
                 fill
-                sizes="(max-width: 640px) 100vw, 500px"
-                className="object-cover object-top transition-transform duration-700 ease-arv group-hover:scale-[1.03]"
+                sizes="(max-width: 640px) 100vw, 600px"
+                className="object-cover object-top transition-transform duration-700 ease-arv group-hover:scale-[1.02]"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              
-              {/* Badge overlay on image */}
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-accent-soft font-semibold">
-                  Founder & Builder
-                </span>
-                <h3 className="mt-1 text-[1.5rem] font-medium tracking-[-0.02em] text-white">
-                  {COMPANY.founder}
-                </h3>
-              </div>
             </div>
 
-            {/* Explanation / Bio */}
-            <div className="mt-6">
-              <p className="text-[1.02rem] leading-relaxed text-ink/75 pretty">
+            {/* Founder Credentials & Bio */}
+            <div className="mt-7">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink/[0.08] pb-4">
+                <div>
+                  <h3 className="text-[1.65rem] font-medium tracking-[-0.025em] text-ink">
+                    {COMPANY.founder}
+                  </h3>
+                  <p className="font-mono text-[0.78rem] uppercase tracking-[0.16em] text-accent font-semibold mt-1">
+                    Founder & CEO
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-[1.02rem] leading-relaxed text-ink/75 pretty">
                 A student entrepreneur working across AI, cognitive learning,
                 educational innovation and product development — building Arviona
                 from close to the classroom it is designed for.
               </p>
 
               {/* Social Links */}
-              <div className="mt-6 flex flex-wrap gap-3 border-t border-ink/[0.08] pt-6">
+              <div className="mt-6 flex flex-wrap gap-3">
                 {SOCIAL_LINKS.map((s) => (
                   <a
                     key={s.name}
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-paper-soft px-4 py-2 text-[0.84rem] font-medium text-ink/80 transition-all duration-300 hover:border-ink hover:bg-ink hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-paper-soft px-4 py-2 text-[0.86rem] font-medium text-ink/80 transition-all duration-300 hover:border-ink hover:bg-ink hover:text-white hover:shadow-sm"
                   >
                     {s.icon}
                     <span>{s.name}</span>
