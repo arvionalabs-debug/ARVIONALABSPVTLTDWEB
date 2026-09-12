@@ -15,26 +15,11 @@ const MorphSlider = dynamic(() => import("@/components/visuals/MorphSlider"), {
 });
 
 const EDU_TOUR_PHOTOS = [
-  {
-    image: "/edu-tour/session-1.jpg",
-    caption: "Interactive AI Classroom Session · Arviona Edu Tour 2026",
-  },
-  {
-    image: "/edu-tour/session-2.jpg",
-    caption: "Live Concept Exploration & Student Engagement",
-  },
-  {
-    image: "/edu-tour/session-3.jpg",
-    caption: "Hands-on Technology Demonstration in the Classroom",
-  },
-  {
-    image: "/edu-tour/session-4.jpg",
-    caption: "Future Skills, AI Awareness & Student Q&A",
-  },
-  {
-    image: "/edu-tour/session-5.jpg",
-    caption: "The Founding Twenty Cohort · Classroom Moments",
-  },
+  { image: "/edu-tour/session-1.jpg" },
+  { image: "/edu-tour/session-2.jpg" },
+  { image: "/edu-tour/session-3.jpg" },
+  { image: "/edu-tour/session-4.jpg" },
+  { image: "/edu-tour/session-5.jpg" },
 ];
 
 export function EduTourShowcase() {
@@ -69,6 +54,7 @@ export function EduTourShowcase() {
             autoplayDelay={4.5}
             loop
             radius={18}
+            showCaptions={false}
           />
         </div>
       </ScrollReveal>
