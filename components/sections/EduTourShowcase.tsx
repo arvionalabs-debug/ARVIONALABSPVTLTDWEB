@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const MorphSlider = dynamic(() => import("@/components/visuals/MorphSlider"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-[450px] w-full items-center justify-center rounded-2xl border border-white/10 bg-[#0C0C0E] sm:h-[540px]">
+    <div className="flex h-[400px] w-full items-center justify-center rounded-2xl border border-white/10 bg-[#0C0C0E] sm:h-[520px]">
       <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/20 border-t-white" />
     </div>
   ),
@@ -16,19 +16,23 @@ const MorphSlider = dynamic(() => import("@/components/visuals/MorphSlider"), {
 
 const EDU_TOUR_PHOTOS = [
   {
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop",
-    caption: "Interactive AI Discovery · Classroom Session",
+    image: "/edu-tour/session-1.jpg",
+    caption: "Interactive AI Classroom Session · Arviona Edu Tour 2026",
   },
   {
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop",
-    caption: "Live Concept Exploration · Higher Secondary Students",
+    image: "/edu-tour/session-2.jpg",
+    caption: "Live Concept Exploration & Student Engagement",
   },
   {
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1600&auto=format&fit=crop",
-    caption: "Adaptive Learning Feedback & Problem Solving",
+    image: "/edu-tour/session-3.jpg",
+    caption: "Hands-on Technology Demonstration in the Classroom",
   },
   {
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1600&auto=format&fit=crop",
+    image: "/edu-tour/session-4.jpg",
+    caption: "Future Skills, AI Awareness & Student Q&A",
+  },
+  {
+    image: "/edu-tour/session-5.jpg",
     caption: "The Founding Twenty Cohort · Classroom Moments",
   },
 ];
@@ -54,7 +58,7 @@ export function EduTourShowcase() {
       </div>
 
       <ScrollReveal delay={0.15} className="mt-14">
-        <div className="relative mx-auto h-[380px] w-full max-w-5xl overflow-hidden rounded-2xl border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:h-[480px] lg:h-[560px]">
+        <div className="relative mx-auto h-[400px] w-full max-w-5xl overflow-hidden rounded-2xl border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] sm:h-[500px] lg:h-[580px]">
           <MorphSlider
             items={EDU_TOUR_PHOTOS}
             transition="melt"
