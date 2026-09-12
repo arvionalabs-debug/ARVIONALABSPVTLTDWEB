@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
-import { EduTourTimeline } from "@/components/sections/EduTourTimeline";
+import { EduTourOverview } from "@/components/sections/EduTourOverview";
 import { EduTourShowcase } from "@/components/sections/EduTourShowcase";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { CTASection } from "@/components/sections/CTASection";
-import { OUTCOMES, TOUR_FORMAT } from "@/lib/edutour";
+import { OUTCOMES } from "@/lib/edutour";
 
 export const metadata: Metadata = {
   title: "Edu Tour 2026",
@@ -22,44 +22,12 @@ export default function EduTourPage() {
         lead="A two-hour interactive experience for higher secondary students — built to be run in your school, in your room, with your students."
         primary={{ label: "Invite Arviona to Your School", href: "/schools#partner" }}
         secondary={{ label: "For Schools", href: "/schools" }}
-        meta={[
-          { k: "Duration", v: "2 Hours" },
-          { k: "Audience", v: "Higher secondary" },
-          { k: "Segments", v: "9" },
-          { k: "Cohort", v: "The Founding Twenty" },
-        ]}
       />
 
-      <section className="relative bg-paper">
-        <div className="shell band">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1fr] lg:gap-20">
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <SectionHeader
-                eyebrow="The Programme"
-                title="Nine segments. Two hours."
-                lead="The session moves from a question, to a demonstration, to a decision — what students will do with this technology, and what it will ask of them. Open any segment to see what happens in it."
-                maxWidth="max-w-md"
-              />
-              <ScrollReveal delay={0.15}>
-                <ul className="mt-10 flex flex-wrap gap-2">
-                  {TOUR_FORMAT.map((f) => (
-                    <li
-                      key={f}
-                      className="rounded-full border border-ink/12 px-3.5 py-1.5 font-mono text-[0.7rem] text-ink/65"
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </ScrollReveal>
-            </div>
+      {/* 2-Hour Experience Overview with High-Impact Hooks */}
+      <EduTourOverview />
 
-            <EduTourTimeline />
-          </div>
-        </div>
-      </section>
-
-      {/* Dedicated Classroom Moments Photo Morph Showcase */}
+      {/* Classroom Moments Photo Morph Showcase */}
       <EduTourShowcase />
 
       <section className="dark-band relative overflow-hidden bg-ink">
@@ -69,11 +37,11 @@ export default function EduTourPage() {
             eyebrow="Outcomes"
             invert
             title="Students leave with more than awareness."
-            lead="No percentages and no claims of measured improvement — these are the outcomes the session is designed to produce."
+            lead="No percentages and no claims of measured improvement — these are the practical outcomes the session is designed to produce."
           />
           <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2">
             {OUTCOMES.map((o, i) => (
-              <ScrollReveal key={o} as="li" delay={(i % 2) * 0.05} className="bg-ink p-7">
+              <ScrollReveal key={o} as="li" delay={(i % 2) * 0.05} className="bg-ink p-7 sm:p-8">
                 <span className="font-mono text-[0.7rem] text-accent-soft">
                   {String(i + 1).padStart(2, "0")}
                 </span>

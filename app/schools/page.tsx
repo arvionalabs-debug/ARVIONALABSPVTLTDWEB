@@ -43,7 +43,6 @@ export default function SchoolsPage() {
         lead="Arviona Edu Tour 2026 — The Founding Twenty. A two-hour interactive experience introducing students to AI, responsible AI usage, modern learning and the opportunities ahead of them."
         primary={{ label: "Bring Arviona to Your School", href: "#partner" }}
         secondary={{ label: "Explore the Edu Tour", href: "/edu-tour" }}
-        meta={TOUR_FACTS.map((f) => ({ k: f.k, v: f.v }))}
       />
 
       <Section tone="light" size="lg">

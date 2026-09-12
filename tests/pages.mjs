@@ -31,14 +31,9 @@ ok("how-it-works: no under the hood accordion", await p.locator("button:has-text
 // ---------- /edu-tour ----------
 await p.goto(BASE + "/edu-tour", { waitUntil: "networkidle" });
 await p.waitForTimeout(600);
-const seg = p.getByRole("button", { name: /AI HALLUCINATION|AI Hallucination/ });
-ok("edu: agenda segments render", await seg.count() > 0);
-if (await seg.count()) {
-  await seg.scrollIntoViewIfNeeded();
-  await seg.click();
-  await p.waitForTimeout(500);
-  ok("edu: segment expands", /confident answers can be wrong/i.test(await p.locator("body").innerText()));
-}
+ok("edu: 2-hour experience overview renders", /focused, interactive session/i.test(await p.locator("body").innerText()));
+ok("edu: showcase renders", await p.locator("#showcase").count() > 0);
+
 
 // ---------- /schools form ----------
 await p.goto(BASE + "/schools#partner", { waitUntil: "networkidle" });
