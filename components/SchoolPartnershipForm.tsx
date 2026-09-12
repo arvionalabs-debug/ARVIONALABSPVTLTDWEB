@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, AlertCircle } from "lucide-react";
 import { EASE } from "@/lib/motion";
 
 type Field = {
@@ -43,16 +43,43 @@ const inputClass =
   "w-full rounded-xl border border-white/12 bg-white/[0.03] px-4 py-3.5 text-[0.95rem] text-white placeholder:text-white/50 transition-colors duration-300 focus:border-accent-soft/70 focus:bg-white/[0.06] focus:outline-none";
 
 export function SchoolPartnershipForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const [school, setSchool] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status !== "idle") return;
+    if (status === "sending") return;
     setStatus("sending");
-    // No backend is configured — the request is not transmitted anywhere.
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("done");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Web3Forms configuration
+    formData.append("access_key", "1e38bb19-a41c-4d3c-a574-e5c645d5e9c5");
+    formData.append("subject", `New School Partnership Request — ${school || "Institution"}`);
+    formData.append("from_name", "Arviona Labs Website Lead");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus("done");
+        form.reset();
+      } else {
+        setStatus("error");
+        setErrorMessage(data.message || "Failed to submit request. Please try again.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage("Network error occurred. Please check your connection and try again.");
+    }
   }
 
   return (
@@ -80,12 +107,7 @@ export function SchoolPartnershipForm() {
               Request received{school ? `, ${school}` : ""}.
             </h3>
             <p className="mx-auto mt-4 max-w-md text-[1rem] leading-relaxed text-white/65">
-              Someone from Arviona will be in touch about the Edu Tour and what
-              hosting a session in your school would involve.
-            </p>
-            <p className="mx-auto mt-8 max-w-md text-[0.85rem] leading-relaxed text-white/65">
-              Demonstration form — no backend is connected, so nothing was
-              transmitted or stored.
+              Thank you. The Arviona team has received your details and will be in touch shortly regarding the Edu Tour and partnership details.
             </p>
             <button
               type="button"
@@ -163,10 +185,16 @@ export function SchoolPartnershipForm() {
               </div>
             ))}
 
+            {status === "error" && (
+              <div className="sm:col-span-2 flex items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-[0.88rem] text-red-300">
+                <AlertCircle className="h-5 w-5 shrink-0 text-red-400" />
+                <span>{errorMessage}</span>
+              </div>
+            )}
+
             <div className="sm:col-span-2 sm:flex sm:items-center sm:justify-between sm:gap-6">
               <p className="order-2 mt-5 text-[0.82rem] leading-relaxed text-white/65 sm:mt-0 sm:max-w-xs">
-                Demonstration form. No backend is connected, so nothing is
-                transmitted or stored.
+                Your details are securely delivered directly to arvionalabs@gmail.com.
               </p>
               <button
                 type="submit"
@@ -176,7 +204,7 @@ export function SchoolPartnershipForm() {
                 {status === "sending" ? (
                   <>
                     <Loader2 aria-hidden className="h-4 w-4 animate-spin" />
-                    Sending
+                    Sending Request...
                   </>
                 ) : (
                   "Request a School Partnership"
