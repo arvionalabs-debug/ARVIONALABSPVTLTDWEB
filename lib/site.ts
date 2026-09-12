@@ -12,5 +12,5 @@ export const COMPANY = {
   tagline:
     "Building Cognitive Learning Intelligence for scalable hyper-personalized learning.",
   founder: "Andrew Surjit Ronald",
-  email: "hello@arvionalabs.com",
+  email: "arvionalabs@gmail.com",
 } as const;
